@@ -1,0 +1,88 @@
+---
+title: "data_wrangling_2"
+output: github_document
+date: "2024-10-10"
+---
+
+```{r}
+library(tidyverse)
+library(rvest)
+library(p8105.datasets)
+```
+
+
+## Let's do strings
+
+Case-sensitive!
+```{r}
+string_vec = c("my", "name", "is", "ziqi")
+
+str_detect(string_vec, "ziqi")
+
+str_replace(string_vec, "ziqi", "Ziqi")
+
+str_replace(string_vec, "e", "E")
+```
+
+
+```{r}
+string_vec = c(
+  "i think we all rule for participating",
+  "i think i have been caught",
+  "i think this will be quite fun actually",
+  "it will be fun, i think"
+  )
+
+str_detect(string_vec, "^i think")
+str_detect(string_vec, "i think$")
+```
+
+
+```{r}
+string_vec = c(
+  "Time for a Pumpkin Spice Latte!",
+  "went to the #pumpkinpatch last weekend",
+  "Pumpkin Pie is obviously the best pie",
+  "SMASHING PUMPKINS -- LIVE IN CONCERT!!"
+  )
+
+str_detect(string_vec,"pumpkin")
+
+str_detect(string_vec,"Pumpkin")
+
+str_detect(string_vec,"PUMPKIN")
+
+str_detect(string_vec,"[Pp]umpkin")
+```
+
+
+```{r}
+string_vec = c(
+  '7th inning stretch',
+  '1st half soon to begin. Texas won the toss.',
+  'she is 5 feet 4 inches tall',
+  '3AM - cant sleep :('
+  )
+
+str_detect(string_vec, "[0-9]")
+
+str_detect(string_vec, "[0-9][a-z]")
+
+str_detect(string_vec, "^[0-9][a-zA-Z]")
+```
+
+
+A little weirder
+```{r}
+string_vec = c(
+  'Its 7:11 in the evening',
+  'want to go to 7-11?',
+  'my flight is AA711',
+  'NetBios: scanning ip 203.167.114.66'
+  )
+
+str_detect(string_vec, "7.11")
+```
+
+
+
